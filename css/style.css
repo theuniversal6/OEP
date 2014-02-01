@@ -1,0 +1,102 @@
+body { margin: 0px; font-family: Tahoma, Geneva, sans-serif; font-size: 14px; background:url(../images/bakground.jpg) no-repeat center; }
+/* PAGE TOP */
+#pageTop {
+	background:url(../images/header11.jpg) no-repeat center;
+    margin:auto;
+}
+#pageTop > #pageTopWrap {
+	width: 1000px;
+	margin: 0px auto;
+	height: 90px;
+}
+#pageTop > #pageTopWrap > #pageTopLogo {
+	float: left;
+	height: 90px;
+	width: 108px;
+}
+#pageTop > #pageTopWrap > #pageTopRest {
+	float: left;
+	height: 90px;
+	width: 892px;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu1 {
+	height: 44px;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu1 > div {
+	margin-top: 8px;
+	padding: 4px;
+	text-align:right;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu1 > div > a {
+	color: #CCC;
+	text-decoration: none;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu1 > div > a:hover {
+	color: #C0E73D;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu2 {
+	height: 44px;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu2 > div {
+	margin-top: 2px;
+	padding: 4px;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu2 > div > a {
+	display: block;
+	float: left;
+	color:#CCC;
+	text-decoration: none;
+	margin: 0px 16px;
+}
+#pageTop > #pageTopWrap > #pageTopRest > #menu2 > div > a:hover {
+	color: #C0E73D;
+}
+/* PAGE MIDDLE */
+#pageMiddle{
+	width: 1000px;
+	margin: 0px auto;
+	height: 900px;
+}
+/* PAGE BOTTOM */
+#pageBottom{
+	background: #666;
+	padding: 24px;
+	font-size: 12px;
+	color: #CCC;
+	text-align: center;
+}
+#loginform{
+	margin-top:24px;	
+}
+#loginform > div {
+	margin-top: 12px;	
+}
+#loginform > input {
+	width: 200px;
+	padding: 3px;
+	background: #F3F9DD;
+}
+#loginbtn {
+	font-size:15px;
+	padding: 10px;
+}
+#signupform{
+	margin-top:24px;	
+}
+#signupform > div {
+	margin-top: 12px;	
+}
+#signupform > input,select {
+	width: 200px;
+	padding: 3px;
+	background: #F3F9DD;
+}
+#signupbtn {
+	font-size:18px;
+	padding: 12px;
+}
+#terms {
+	border:#CCC 1px solid;
+	background: #F5F5F5;
+	padding: 12px;
+}
