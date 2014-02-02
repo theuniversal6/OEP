@@ -20,7 +20,7 @@ if(isset($_POST["e"])){
         exit();
 	} else {
 	// END FORM DATA ERROR HANDLING
-            $sql = "SELECT id, username, password, type FROM user WHERE email='$e' LIMIT 1";
+            $sql = "SELECT id, username, password, type FROM users WHERE email='$e' LIMIT 1";
         $query = mysqli_query($db_conx, $sql);
         $row = mysqli_fetch_row($query);
 		$db_id = $row[0];

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Subjects</title>
-<link rel="icon" href="../Blood Donation System/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="../Blood Donation System/css/style.css">
+<link rel="icon" href="../Final OEP/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../Final OEP/css/style.css">
 </head>
 <body>
 <?php include_once("../Final OEP/php/template_pageTop.php"); ?>

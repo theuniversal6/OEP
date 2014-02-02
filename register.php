@@ -28,12 +28,6 @@ if($user_ok == true){
     <input id="email" type="email" name="e" maxlength="88">
     <div>Create Password:</div>
     <input id="pass" type="password" name="p" maxlength="16">
-    <div>Type:</div>
-        <select name="type">
-            <option value="org">Organization</option>
-            <option value="don">Donor</option>
-            <option value="rec">Receiver</option>
-        </select>
     <br /><br />
     <button id="signupbtn" type="submit">Create Account</button>
     <span id="status"></span>

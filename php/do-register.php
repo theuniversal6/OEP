@@ -9,7 +9,7 @@ if(isset($_SESSION["username"])){
 if(isset($_POST["usernamecheck"])){
 	include_once("php/includes/db_conx.php");
 	$username = preg_replace('#[^a-z0-9]#i', '', $_POST['usernamecheck']);
-	$sql = "SELECT user_id FROM user WHERE username='$username' LIMIT 1";
+	$sql = "SELECT id FROM users WHERE username='$username' LIMIT 1";
     $query = mysqli_query($db_conx, $sql); 
     $uname_check = mysqli_num_rows($query);
     if (strlen($username) < 3 || strlen($username) > 16) {
@@ -36,24 +36,14 @@ if(isset($_POST["u"])){
 	$u = preg_replace('#[^a-z0-9]#i', '', $_POST['u']);
 	$e = mysqli_real_escape_string($db_conx, $_POST['e']);
 	$p = md5($_POST['p']);
-    $t = $_POST['type'];
 	// GET USER IP ADDRESS
     $ip = preg_replace('#[^0-9.]#', '', $_SERVER['REMOTE_ADDR']);
 	// DUPLICATE DATA CHECKS FOR USERNAME AND EMAIL
-	if($t === "org"){
-        $sql = "SELECT organization_id FROM organization WHERE username='$u' LIMIT 1";
+        $sql = "SELECT id FROM users WHERE username='$u' LIMIT 1";
         $query = mysqli_query($db_conx, $sql); 
         $u_check = mysqli_num_rows($query);
         // -------------------------------------------
-        $sql = "SELECT organization_id FROM organization WHERE email='$e' LIMIT 1";
-        $query = mysqli_query($db_conx, $sql); 
-        $e_check = mysqli_num_rows($query);
-    }else{
-        $sql = "SELECT user_id FROM user WHERE username='$u' LIMIT 1";
-        $query = mysqli_query($db_conx, $sql); 
-        $u_check = mysqli_num_rows($query);
-        // -------------------------------------------
-        $sql = "SELECT user_id FROM user WHERE email='$e' LIMIT 1";
+        $sql = "SELECT id FROM users WHERE email='$e' LIMIT 1";
         $query = mysqli_query($db_conx, $sql); 
         $e_check = mysqli_num_rows($query);
     }
@@ -77,34 +67,14 @@ if(isset($_POST["u"])){
 	// END FORM DATA ERROR HANDLING
 	    // Begin Insertion of data into the database
 		// Add user info into the database table for the main site table
-		if($t == "org"){
-            $sql = "INSERT INTO organization (username, email, password) VALUES('$u','$e','$p')";
+            $sql = "INSERT INTO users (username, email, password, type) VALUES('$u','$e','$p',1)";
             $query = mysqli_query($db_conx, $sql); 
             $uid = mysqli_insert_id($db_conx);
-            // Establish their row in the useroptions table
-            $sql = "INSERT INTO loginactivity (login_id, type, datetime, ip_address) VALUES ('$uid','3',now(),INET_ATON('$ip'))";
-            $query = mysqli_query($db_conx, $sql);
-            // Create directory(folder) to hold each user's files(pics, MP3s, etc.)
-            if (!file_exists("../organization/$u")) {
-                mkdir("../organization/$u", 0755);
-            }
-        }else{
-            if($t == "don")$t = 1;
-            else $t = 2;
-            $sql = "INSERT INTO user (username, email, password, type) VALUES('$u','$e','$p','$t')";
-            $query = mysqli_query($db_conx, $sql); 
-            $uid = mysqli_insert_id($db_conx);
-            // Establish their row in the useroptions table
-            $sql = "INSERT INTO loginactivity (login_id, type, datetime, ip_address) VALUES ('$uid','$t',now(), INET_ATON('$ip'))";
-            $query = mysqli_query($db_conx, $sql);
             // Create directory(folder) to hold each user's files(pics, MP3s, etc.)
             if (!file_exists("../user/$u")) {
                 mkdir("../user/$u", 0755);
             }
         }
-		echo "signup_success";
+		header("Location:login.php");
 		exit();
-	}
-	exit();
-}
 ?>

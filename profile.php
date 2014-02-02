@@ -3,7 +3,6 @@ include_once("php/check_login_status.php");
 // Initialize any variables that the page might echo
 $u = "";
 $usertype = "";
-
 // Make sure the _GET username is set, and sanitize it
 if(isset($_GET["u"])){
 	$u = preg_replace('#[^a-z0-9]#i', '', $_GET['u']);
@@ -20,7 +19,7 @@ if($num < 1){
     exit();	
 }else if($num == 1){
     	$row = mysqli_fetch_array(mysqli_query($db_conx, $sql));
-        $userId = $row["id"];
+        $userId = $row['id'];
 }
 $sql = "SELECT * FROM profile WHERE user_id='$userId' LIMIT 1";
 $row = mysqli_fetch_array(mysqli_query($db_conx, $sql));
